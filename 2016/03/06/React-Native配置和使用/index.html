@@ -1,0 +1,776 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="React Native, Getting Started," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="React Native配置和使用（OS X）个人比较喜欢react的函数式编程方式，native采用同样的方式写原生app，所以也开始学习react native，首先是环境配置以及跑起来第一个ios和android应用。
+环境配置
+操作系统使用mac os x进行开发。官方也是将os x作为最高优先级来支持，不过windows和linux可以进行Android开发。
+推荐使用Homebrew来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native配置和使用">
+<meta property="og:url" content="http://yoursite.com/2016/03/06/React-Native配置和使用/index.html">
+<meta property="og:site_name" content="Yongjz's home">
+<meta property="og:description" content="React Native配置和使用（OS X）个人比较喜欢react的函数式编程方式，native采用同样的方式写原生app，所以也开始学习react native，首先是环境配置以及跑起来第一个ios和android应用。
+环境配置
+操作系统使用mac os x进行开发。官方也是将os x作为最高优先级来支持，不过windows和linux可以进行Android开发。
+推荐使用Homebrew来">
+<meta property="og:image" content="http://yoursite.com/images/Reactnative/AndroidSDK1.png">
+<meta property="og:image" content="http://yoursite.com/images/Reactnative/AndroidSDK2.png">
+<meta property="og:image" content="http://yoursite.com/images/Reactnative/AndroidSDK3.png">
+<meta property="og:image" content="http://yoursite.com/images/Reactnative/AndroidSDK4.png">
+<meta property="og:image" content="http://yoursite.com/images/Reactnative/AndroidSDK5.png">
+<meta property="og:updated_time" content="2016-03-05T16:05:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native配置和使用">
+<meta name="twitter:description" content="React Native配置和使用（OS X）个人比较喜欢react的函数式编程方式，native采用同样的方式写原生app，所以也开始学习react native，首先是环境配置以及跑起来第一个ios和android应用。
+环境配置
+操作系统使用mac os x进行开发。官方也是将os x作为最高优先级来支持，不过windows和linux可以进行Android开发。
+推荐使用Homebrew来">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> React Native配置和使用 | Yongjz's home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?db3540688634870a8cbbb8f2e5893c7d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Yongjz's home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">走在成为全栈程序猿的路上</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React Native配置和使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-06T12:06:18+08:00" content="2016-03-06">
+              2016-03-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/06/React-Native配置和使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/06/React-Native配置和使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="React_Native配置和使用（OS_X）">React Native配置和使用（OS X）</h1><p>个人比较喜欢react的函数式编程方式，native采用同样的方式写原生app，所以也开始学习react native，首先是环境配置以及跑起来第一个ios和android应用。</p>
+<h2 id="环境配置">环境配置</h2><ol>
+<li>操作系统使用mac os x进行开发。官方也是将os x作为最高优先级来支持，不过windows和linux可以进行Android开发。</li>
+<li>推荐使用<a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a>来安装基本环境。</li>
+<li>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Nodejs</a><ul>
+<li>直接官网下载安装包</li>
+<li>或者使用<a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>命令行来安装</li>
+</ul>
+</li>
+<li>使用Homebrew安装watchman，命令行输入：<code>brew install watchman</code></li>
+<li>使用Homebrew安装flow，命令行输入：<code>brew install flow</code></li>
+<li>如果是使用homebrew进行的配置，命令行输入：<code>brew update &amp;&amp; brew upgrade</code> 命令保持最新版环境。</li>
+</ol>
+<h2 id="ios开发环境">ios开发环境</h2><p>ios只需要从Appstore下载安装xcode7即可。</p>
+<h2 id="android开发环境">android开发环境</h2><p>安装开发环境相比较要麻烦一些。</p>
+<ol>
+<li>安装<a href="https://git-scm.com/" target="_blank" rel="external">git</a>,命令行输入<code>brew install git</code>。如果已经安装了xcode，则不需要安装。</li>
+<li>安装最新的<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">JDK</a></li>
+<li>使用Homebrew安装android-sdk，命令行输入：<code>brew install android-sdk</code></li>
+<li><p>配置ANDROID_HOME环境变量：采用上述命令安装android-sdk，安装路径是<code>/usr/local/opt/android-sdk</code>，如果是别的方式安装的，则需要找到对应的安装目录。编辑<code>~/.bashrc</code>或者 <code>~/.bash_profile</code>文件，添加以下代码：</p>
+<pre><code>export ANDROID_HOME=/usr/<span class="keyword">local</span>/<span class="built_in">opt</span>/android-sdk
+</code></pre></li>
+<li><p>配置android sdk</p>
+<ul>
+<li>打开Android SDK Manager，命令行输入<code>android</code> 即可打开。根据官方网站的要求勾选需要的包：<ul>
+<li>Android SDK Build-tools version 23.0.1</li>
+<li>Android 6.0 (API 23)</li>
+<li>Android Support Repository</li>
+</ul>
+</li>
+<li>选择需要安装的包，如下图：<br><img src="images/Reactnative/AndroidSDK1.png" alt="SDK Manager window"><br><img src="images/Reactnative/AndroidSDK2.png" alt="SDK Manager window"><br>点击”Install Packages”即可。</li>
+<li><strong>注意</strong>，可能会遇到一些坑   <ul>
+<li>要根据官网所要求的包进行安装，例如目前Android SDK Build-tools官网文档中要求版本是23.0.1，最新版本是23.0.2，要看清楚版本号进行安装。</li>
+<li>Android Support Repository现在的名字变成Local Maven repository for Support Libraries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>配置安卓模拟器<br>官方建议使用<a href="https://www.genymotion.com/" target="_blank" rel="external">Genymotion</a>来安装配置模拟器。需要注册账号，下载个人免费版，然后启动程序需要安装VirtualBox等。<br>个人觉得直接利用Android SDK Manager下载相应的包，启动谷歌自带模拟器更简单一点。配置过程如下：</p>
+<ul>
+<li>勾选安装包：<ul>
+<li>Intel x86 Atom System Image</li>
+<li>Intel x86 Emulator Accelerator (HAXM installer)<br>点击”Install Packages”   </li>
+</ul>
+</li>
+<li>配置<a href="http://developer.android.com/tools/devices/emulator.html#vm-mac" target="_blank" rel="external">HAXM</a></li>
+<li>创建一个模拟器（ Android Virtual Device，AVD）</li>
+<li>命令行输入<code>android avd</code>,打开avd管理器，点击<code>Create...</code>新建一个模拟器，填写配置即可。</li>
+<li>选择已经建好的模拟器，点击<code>Start...</code>。<br><img src="images/Reactnative/AndroidSDK3.png" alt="SDK Manager window"><br><img src="images/Reactnative/AndroidSDK4.png" alt="SDK Manager window"></li>
+</ul>
+<p><strong>注意：</strong><br>前面使用Android SDK Manager下载的HAXM其实并没有安装，只是下载到本地了，还需要手动安装一下，文件下载到了android-sdk目录下的extras文件夹中<code>/usr/local/opt/android-sdk/extras/intel/Hardware_Accelerated_Execution_Manager</code></p>
+</li>
+</ol>
+<h2 id="启动第一个应用">启动第一个应用</h2><h4 id="使用React_Native命令行工具来创建应用">使用React Native命令行工具来创建应用</h4><ul>
+<li>安装React Native命令行工具，命令行输入:<code>npm install -g react-native-cli</code>。</li>
+<li>创建React Native项目，命令行输入:<code>react-native init MyReactNativeApp</code>。</li>
+</ul>
+<h4 id="运行ios_app">运行ios app</h4><ul>
+<li>进入到初始化安装目录<code>$ cd MyReactNativeApp</code>。</li>
+<li>使用<code>open .</code>命令打开该目录，点击<code>ios/MyReactNativeApp.xcodeproj</code>项目文件，使用xcode打开该项目。</li>
+<li>xcode中运行该项目，即可打开模拟器，看到初始化的ios app的效果。</li>
+<li>修改index.ios.js，然后在模拟器中使用<code>command+r</code>重新加载app。</li>
+</ul>
+<h4 id="运行android_app">运行android app</h4><ul>
+<li>运行之前设置好的安卓模拟器。</li>
+<li>进入到初始化安装目录<code>$ cd MyReactNativeApp</code>。</li>
+<li>命令行输入<code>$ react-native run-android</code>，运行该命令React Native会下载并使用<a href="https://docs.gradle.org/" target="_blank" rel="external">gradle</a>编译该项目。编译成功后，app即可在安卓模拟器中打开。(过程中会下载gradle，有时候命令行可能会卡住，多尝试几次即可)</li>
+<li>修改index.android.js，然后在模拟器中使用<code>F2</code>重新加载app。</li>
+<li>命令行中输入<code>adb logcat *:S ReactNative:V ReactNativeJS:V</code>，即可在命令行终端看到app运行的日志。</li>
+<li><strong>注意:</strong>如果初始化的项目编译不通过，请检查Android SDK Manager中是否存在没有安装好或者版本不正确的package。<br> <img src="images/Reactnative/AndroidSDK5.png" alt="SDK Manager window"></li>
+</ul>
+<p>我主要是参考<a href="http://facebook.github.io/react-native/" target="_blank" rel="external">官方文档</a>进行的配置，在配置android环境过程中遇到了一些麻烦。</p>
+<p>后续会继续更新。。。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React-Native-Getting-Started/" rel="tag">#React Native, Getting Started</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/05/hello-world/" rel="next" title="How to use hexo">
+                <i class="fa fa-chevron-left"></i> How to use hexo
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/06/React-Native配置和使用/"
+           data-title="React Native配置和使用" data-url="http://yoursite.com/2016/03/06/React-Native配置和使用/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars1.githubusercontent.com/u/8091865?v=3&s=460"
+               alt="Yongjz" />
+          <p class="site-author-name" itemprop="name">Yongjz</p>
+          <p class="site-description motion-element" itemprop="description">我就是我，是颜色不一样的烟火。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React_Native配置和使用（OS_X）"><span class="nav-number">1.</span> <span class="nav-text">React Native配置和使用（OS X）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境配置"><span class="nav-number">1.1.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ios开发环境"><span class="nav-number">1.2.</span> <span class="nav-text">ios开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android开发环境"><span class="nav-number">1.3.</span> <span class="nav-text">android开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动第一个应用"><span class="nav-number">1.4.</span> <span class="nav-text">启动第一个应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用React_Native命令行工具来创建应用"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">使用React Native命令行工具来创建应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行ios_app"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">运行ios app</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行android_app"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">运行android app</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yongjz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yongjz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
